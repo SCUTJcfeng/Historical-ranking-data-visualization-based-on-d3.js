@@ -9,7 +9,7 @@ const config = {
   encoding: "UTF-8",
 
   // 每个时间节点最多显示的条目数。
-  max_number: 20,
+  max_number: 10,
 
   // 控制是否显示顶部附加信息文字。
   showMessage: true,
@@ -25,17 +25,26 @@ const config = {
   timeFormat: "%Y-%m-%d",
 
   // 倒序，使得最短的条位于最上方
-  reverse: false,
+  reverse: true,
 
   // 类型根据什么字段区分？如果是name，则关闭类型显示
-  divide_by: "type",
+  divide_by: "name",
 
   // 颜色根据什么字段区分？
-  divide_color_by: "type",
+  divide_color_by: "name",
 
   // 字段的值与其对应的颜色值
   color: {
-    Chinese: "#17C"
+    "TP-Link Archer C6": "#1177CC",
+    "TP-LINK TL-WR841N": "#667788",
+    "TP-LINK Archer C50 AC1200 Dual Band": "#FF00FF",
+    "ASUS RT-AC58U": "#483D8B",
+    "ASUS RT-AC66U B1": "#32CD32",
+    "TP-LINK Archer C20 AC750 Dual Band v4": "#7FE539",
+    "TP-LINK Archer C7 AC1750 Dual Band": "#228B22",
+    "TP-LINK Deco M5 3ks": "#CD853F",
+    "TP-LINK TL-WR940N": "#A52A2A",
+    "TP-LINK M7200": "#FF5733"
   },
 
   // 颜色绑定增长率
@@ -46,21 +55,21 @@ const config = {
 
   // 附加信息内容。
   // left label
-  itemLabel: "左侧文字",
+  //   itemLabel: "左侧文字",
 
   // right label
-  typeLabel: "右侧文字",
+  //   typeLabel: "右侧文字",
   // 榜首项目信息的水平位置 。
-  item_x: 250,
+  item_x: 300,
 
   // 时间点间隔时间。
-  interval_time: 2,
+  interval_time: 1,
 
   // 上方文字水平高度。
   text_y: -50,
 
   // 右侧文字横坐标
-  text_x: 1000,
+  text_x: 800,
   // 偏移量
   offset: 350,
 
@@ -113,19 +122,21 @@ const config = {
   long: false,
 
   // 延迟多少个时间节点开始
-  wait: 2,
+  wait: 0,
 
   // 单独控制交换动画速度倍率
   update_rate: 1,
 
   // 开启匀速动画效果
   // animation:'linear',
-  showLabel: true,
+
+  // 左侧label显示
+  showLabel: false,
 
   // label x轴位置
   labelx: -10,
 
-  use_img: false,
+  use_img: true,
 
   // 图片路径，本地图片或者网上图片。
   imgs: {
@@ -144,5 +155,12 @@ const config = {
 
   // 限制bar info 展示的长度
   // limit bar info display length
-  bar_name_max: 30
+  bar_name_max: 50,
+
+  // 以下为新增字段
+  // bar上名字与bar的相对位置y
+  bar_name_relative_y: 11,
+
+  // 右上角标题
+  days_prefix: "连续霸榜时间: "
 };

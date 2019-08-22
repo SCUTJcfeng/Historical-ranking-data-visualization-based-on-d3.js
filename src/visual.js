@@ -111,6 +111,10 @@ function draw(data) {
   var text_x = config.text_x;
   var offset = config.offset;
   var animation = config.animation;
+
+  // 新增自定义字段
+  var bar_name_relative_y = config.bar_name_relative_y;
+  var days_prefix = config.days_prefix;
   const margin = {
     left: left_margin,
     right: right_margin,
@@ -188,7 +192,7 @@ function draw(data) {
   //dateLabel位置
   if (dateLabel_x == null || dateLabel_y == null) {
     dateLabel_x = innerWidth; //默认
-    dateLabel_y = innerHeight; //默认
+    dateLabel_y = innerHeight - 30; //默认
   } //是否隐藏
   if (dateLabel_switch == false) {
     dateLabel_switch = "hidden";
@@ -413,7 +417,7 @@ function draw(data) {
           counter.value = 1;
         }
         lastname = d.name;
-        if (d.name.length > 24) return d.name.slice(0, 23) + "...";
+        // if (d.name.length > 24) return d.name.slice(0, 23) + "...";
         return d.name;
       });
       if (use_counter == true) {
@@ -425,14 +429,18 @@ function draw(data) {
           .ease(d3.easeLinear)
           .tween("text", function(d) {
             var self = this;
-            var i = d3.interpolate(self.textContent, counter.value),
+            var text = "";
+            if (self.textContent != "") {
+              text = self.textContent.split(" ")[1];
+            }
+            var i = d3.interpolate(text, counter.value),
               prec = (counter.value + "").split("."),
               round = prec.length > 1 ? Math.pow(10, prec[1].length) : 1;
 
             return function(t) {
-              self.textContent = d3.format(format)(
-                Math.round(i(t) * round) / round
-              );
+              self.textContent =
+                days_prefix +
+                d3.format(format)(Math.round(i(t) * round) / round);
             };
           });
       } else if (use_type_info == true) {
@@ -567,7 +575,7 @@ function draw(data) {
         }
         return 1;
       })
-      .attr("y", 2)
+      .attr("y", bar_name_relative_y)
       .attr("dy", ".5em")
       .attr("text-anchor", function() {
         if (long) return "start";

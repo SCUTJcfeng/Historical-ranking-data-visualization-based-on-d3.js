@@ -39,7 +39,7 @@ input {
 .dateLabel {
   fill: rgb(92, 92, 92);
   display: table-cell;
-  font-size: 60pt;
+  font-size: 30pt;
   font-weight: bold;
   font-family: "Fira Code", "Source Han Sans CN";
 }
@@ -62,7 +62,7 @@ input {
 .topLabel {
   fill: rgb(92, 92, 92);
   font-weight: bold;
-  font-size: 40pt;
+  font-size: 24pt;
   font-family: "Fira Code", "Source Han Sans CN";
 }
 
@@ -83,7 +83,7 @@ input {
 .barInfo {
   fill: rgb(255, 255, 255);
   font-weight: 800;
-  font-size: 24pt;
+  font-size: 14pt;
   font-family: "Fira Code", "Source Han Sans CN";
 }
 
@@ -96,7 +96,7 @@ input {
 .days {
   fill: rgb(92, 92, 92);
   font-weight: bold;
-  font-size: 40pt;
+  font-size: 24pt;
   font-family: "Fira Code", "Source Han Sans CN";
 }
 
