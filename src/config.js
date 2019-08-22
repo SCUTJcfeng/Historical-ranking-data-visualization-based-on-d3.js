@@ -35,7 +35,7 @@ const config = {
 
   // 字段的值与其对应的颜色值
   color: {
-    'Chinese': "#17C",
+    Chinese: "#17C"
   },
 
   // 颜色绑定增长率
@@ -129,7 +129,8 @@ const config = {
 
   // 图片路径，本地图片或者网上图片。
   imgs: {
-    '条目': 'http://i1.hdslb.com/bfs/face/983034448f81f45f05956d0455a86fe0639d6a36.jpg',
+    条目:
+      "http://i1.hdslb.com/bfs/face/983034448f81f45f05956d0455a86fe0639d6a36.jpg"
   },
 
   // 全局背景颜色
