@@ -11,8 +11,12 @@
 
 $("#inputfile").change(function() {
   $("#inputfile").attr("hidden", true);
+  readAndDraw(this.files[0]);
+});
+
+function readAndDraw(file) {
   var r = new FileReader();
-  r.readAsText(this.files[0], config.encoding);
+  r.readAsText(file, config.encoding);
   r.onload = function() {
     //读取完成后，数据保存在对象的result属性中
     var data = d3.csvParse(this.result);
@@ -22,7 +26,46 @@ $("#inputfile").change(function() {
       alert(error);
     }
   };
-});
+}
+
+var page = document.getElementById("page");
+
+page.addEventListener(
+  "drop",
+  function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    readAndDraw(e.dataTransfer.files[0]);
+  },
+  false
+);
+
+page.addEventListener(
+  "dragenter",
+  function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+  },
+  false
+);
+
+page.addEventListener(
+  "dragleave",
+  function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+  },
+  false
+);
+
+page.addEventListener(
+  "dragover",
+  function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+  },
+  false
+);
 
 function draw(data) {
   var date = [];
@@ -132,6 +175,9 @@ function draw(data) {
   var currentData = [];
   var lastname;
   const svg = d3.select("svg");
+
+  // 清空画布
+  d3.selectAll("svg > *").remove();
 
   const width = svg.attr("width");
   const height = svg.attr("height");
