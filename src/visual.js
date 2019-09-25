@@ -101,7 +101,6 @@ function draw(data) {
   );
   // 选择颜色
   function getColor(d) {
-    var r = 0.0;
     if (changeable_color) {
       var v =
         Math.abs(rate[d.name] - rate["MIN_RATE"]) /
@@ -124,7 +123,6 @@ function draw(data) {
     for (let index = 0; index < name.length; index++) {
       code = code + name.charCodeAt(index);
     }
-    console.log(name + code);
     return d3.schemeCategory10[code % 10];
   }
 
@@ -306,6 +304,17 @@ function draw(data) {
       });
     }
   }
+
+  //   function reOrder() {
+  //     if (config.showLabel == true) {
+  //       // 重新排序, 给左侧label值显示
+  //       var index = 0;
+  //       g.selectAll(".label").text(function() {
+  //         index += 1;
+  //         return index;
+  //       });
+  //     }
+  //   }
 
   function getCurrentData(date) {
     rate = [];
@@ -524,7 +533,7 @@ function draw(data) {
         .attr("y", "0")
         .attr("width", "40")
         .attr("height", "40")
-        .attr("href", d => config.imgs[d.name]);
+        .attr("href", config.img);
 
       barEnter
         .append("circle")
@@ -553,7 +562,7 @@ function draw(data) {
         }
       })
       .attr("fill-opacity", 0)
-      .attr("height", 26)
+      .attr("height", 36)
       .attr("y", 50)
       .style("fill", d => getColor(d))
       .transition("a")
@@ -581,13 +590,13 @@ function draw(data) {
           return "label ";
         })
         .attr("x", config.labelx)
-        .attr("y", 20)
+        .attr("y", 25)
         .attr("text-anchor", "end")
         .text(function(d) {
           if (long) {
             return "";
           }
-          return d.name;
+          //   return d.innerrank;
         });
     }
 
@@ -638,7 +647,7 @@ function draw(data) {
         if (xScale(xValue(d)) - 10 < display_barInfo) {
           return "0px";
         }
-        return "1px";
+        return "0.5px";
       });
     if (long) {
       barInfo.tween("text", function(d) {
@@ -698,7 +707,7 @@ function draw(data) {
         .attr("x", d => {
           return xScale(xValue(d)) + 10;
         })
-        .attr("y", 22);
+        .attr("y", 26);
     }
     var barUpdate = bar
       .transition("2")
@@ -759,7 +768,7 @@ function draw(data) {
         if (xScale(xValue(d)) - 10 < display_barInfo) {
           return "0px";
         }
-        return "1px";
+        return "0.5px";
       });
 
     if (long) {

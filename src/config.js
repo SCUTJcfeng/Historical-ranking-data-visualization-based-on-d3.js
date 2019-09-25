@@ -120,18 +120,17 @@ const config = {
   // animation:'linear',
 
   // 左侧label显示
-  showLabel: false,
+  showLabel: true,
 
   // label x轴位置
   labelx: -10,
 
-  use_img: true,
+  // 是否显示图片, 与下面图片路径关联。
+  use_img: false,
 
-  // 图片路径，本地图片或者网上图片。
-  imgs: {
-    条目:
-      "http://i1.hdslb.com/bfs/face/983034448f81f45f05956d0455a86fe0639d6a36.jpg"
-  },
+  // 图片路径，本地图片或者网上图片(图片暂时不能显示)。
+  img:
+    "http://i1.hdslb.com/bfs/face/983034448f81f45f05956d0455a86fe0639d6a36.jpg",
 
   // 全局背景颜色
   background_color: "#FFF",
@@ -148,7 +147,7 @@ const config = {
 
   // 以下为新增字段
   // bar上名字与bar的相对位置y
-  bar_name_relative_y: 11,
+  bar_name_relative_y: 15,
 
   // 右上角标题
   days_prefix: "连续霸榜时间: "

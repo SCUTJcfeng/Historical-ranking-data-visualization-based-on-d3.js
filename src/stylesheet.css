@@ -31,7 +31,7 @@ input {
 
 .label {
   fill: rgb(92, 92, 92);
-  font-size: 15pt;
+  font-size: 18pt;
   font-family: "Fira Code", "Source Han Sans CN";
   font-weight: bold;
 }
@@ -75,7 +75,7 @@ input {
 
 .value {
   fill: rgb(138, 46, 46);
-  font-size: 20pt;
+  font-size: 18pt;
   font-weight: 400;
   font-family: "Fira Code", "Source Han Sans CN";
 }
@@ -83,7 +83,7 @@ input {
 .barInfo {
   fill: rgb(255, 255, 255);
   font-weight: 800;
-  font-size: 14pt;
+  font-size: 18pt;
   font-family: "Fira Code", "Source Han Sans CN";
 }
 
