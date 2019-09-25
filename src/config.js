@@ -25,7 +25,7 @@ const config = {
   timeFormat: "%Y-%m-%d",
 
   // 倒序，使得最短的条位于最上方
-  reverse: true,
+  reverse: false,
 
   // 类型根据什么字段区分？如果是name，则关闭类型显示
   divide_by: "name",
@@ -34,18 +34,7 @@ const config = {
   divide_color_by: "name",
 
   // 字段的值与其对应的颜色值
-  color: {
-    "TP-Link Archer C6": "#1177CC",
-    "TP-LINK TL-WR841N": "#667788",
-    "TP-LINK Archer C50 AC1200 Dual Band": "#FF00FF",
-    "ASUS RT-AC58U": "#483D8B",
-    "ASUS RT-AC66U B1": "#32CD32",
-    "TP-LINK Archer C20 AC750 Dual Band v4": "#7FE539",
-    "TP-LINK Archer C7 AC1750 Dual Band": "#228B22",
-    "TP-LINK Deco M5 3ks": "#CD853F",
-    "TP-LINK TL-WR940N": "#A52A2A",
-    "TP-LINK M7200": "#FF5733"
-  },
+  color: {},
 
   // 颜色绑定增长率
   changeable_color: false,

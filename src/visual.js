@@ -10,11 +10,11 @@
 // require("./stylesheet.css");
 
 $("#inputfile").change(function() {
-  $("#inputfile").attr("hidden", true);
   readAndDraw(this.files[0]);
 });
 
 function readAndDraw(file) {
+  $("#inputfile").attr("hidden", true);
   var r = new FileReader();
   r.readAsText(file, config.encoding);
   r.onload = function() {
@@ -115,10 +115,17 @@ function draw(data) {
     if (d[divide_color_by] in config.color)
       return config.color[d[divide_color_by]];
     else {
-      return d3.schemeCategory10[
-        Math.floor(d[divide_color_by].charCodeAt() % 10)
-      ];
+      return genUniqueCode(d[divide_color_by]);
     }
+  }
+
+  function genUniqueCode(name) {
+    var code = 0;
+    for (let index = 0; index < name.length; index++) {
+      code = code + name.charCodeAt(index);
+    }
+    console.log(name + code);
+    return d3.schemeCategory10[code % 10];
   }
 
   var showMessage = config.showMessage;
