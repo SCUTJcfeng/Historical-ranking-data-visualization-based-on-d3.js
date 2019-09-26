@@ -305,16 +305,16 @@ function draw(data) {
     }
   }
 
-  //   function reOrder() {
-  //     if (config.showLabel == true) {
-  //       // 重新排序, 给左侧label值显示
-  //       var index = 0;
-  //       g.selectAll(".label").text(function() {
-  //         index += 1;
-  //         return index;
-  //       });
-  //     }
-  //   }
+  // 通过判断d.value 在currentData的位置判断排名
+  function reOrder(d) {
+    var rank = 1;
+    for (let index = 0; index < currentData.length; index++) {
+      if (Number(currentData[index].value) > Number(d.value)) {
+        rank += 1;
+      }
+    }
+    return rank;
+  }
 
   function getCurrentData(date) {
     rate = [];
@@ -593,9 +593,7 @@ function draw(data) {
         .attr("y", 25)
         .attr("text-anchor", "end")
         .text(function(d) {
-          if (long) {
-            return "";
-          }
+          return reOrder(d);
           //   return d.innerrank;
         });
     }
@@ -723,6 +721,9 @@ function draw(data) {
         .select(".label")
         .attr("class", function(d) {
           return "label ";
+        })
+        .text(function(d) {
+          return reOrder(d);
         })
         .style("fill", d => getColor(d))
         .attr("width", d => xScale(xValue(d)));
